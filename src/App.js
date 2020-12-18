@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+
 import './App.css';
+import TypeFetcher from './pokeapi/TypeFetcher'
+import WeatherFetcher from './weatherapi/WeatherFetcher'
+import PokemonGenerator from './PokemonGenerator'
 
 function App() {
+  const [types, setTypes] = useState([])
+  const [weather, setWeather] = useState({})
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TypeFetcher setTypes={setTypes}/>
+      <WeatherFetcher setWeatherData={setWeather}/>
+      {types.length > 0 && Object.keys(weather).length > 0
+        ? <PokemonGenerator types={types} weather={weather} /> : ''}
+      
     </div>
   );
 }
