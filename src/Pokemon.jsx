@@ -12,7 +12,6 @@ const Pokemon = ({ types, weather }) => {
     type = weatherToType(weather, types)
 
     useEffect(() => {
-        console.log(type)
         if (!pokemonFetched) {
             setRandomPokemon(type)
         }
@@ -23,13 +22,13 @@ const Pokemon = ({ types, weather }) => {
         setPokemonFetched(false)
     }, [weather])
 
-    const setRandomPokemon = (type) => {
-        if (type !== "No type") {
-            fetch(type.url)
-                .then((response) => response.json())
-                .then((data) => setPokemon(data.pokemon[Math.floor(Math.random() * (data.pokemon.length / 2))].pokemon))
-            setPokemonFetched(true)
-        }
+    const setRandomPokemon = (typeObject) => {
+        fetch(typeObject.url)
+            .then((response) => response.json())
+            .then((data) => {
+                setPokemonFetched(true)
+                setPokemon(data.pokemon[Math.floor(Math.random() * (data.pokemon.length / 2))].pokemon)
+            })
     }
 
     const getSprite = (url) => {

@@ -5,14 +5,13 @@ import Button from '@material-ui/core/Button';
 import './css/city_selector.css'
 
 const CitySelector = ({ setInsee }) => {
-    console.log(cityMap.entries())
-
     const cityArray = []
     cityMap.forEach((value, key) => cityArray.push({ insee: key, cityName: value }))
 
     return (
         <div className="city-selector">
             {cityArray.map(city => <Button
+                key={city.cityName}
                 variant="contained"
                 size="small"
                 onClick={() => setInsee(city.insee)}>

@@ -18,8 +18,6 @@ const Weather = ({ weatherData, setInsee }) => {
             setWeatherIcon(getWeatherUrl(weatherIconMap.get(getWeatherName(weatherData))))
     }, [weatherData])
 
-    console.log(weatherData)
-
     return (
         <div className="weather-body">
             <div className="city">{weatherData.cityName}</div>
