@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
+import CitySelector from './CitySelector'
 import weatherMap from './utilities/WeatherMap'
 import { getWeatherName } from './utilities/WeatherToType'
 import weatherIconMap from './utilities/WeatherIconMap'
 
 import './css/weather.css'
 
-const Weather = ({ weatherData }) => {
+const Weather = ({ weatherData, setInsee }) => {
     const [weatherIcon, setWeatherIcon] = useState("")
 
     const getWeatherUrl = (key) => {
@@ -21,7 +22,7 @@ const Weather = ({ weatherData }) => {
 
     return (
         <div className="weather-body">
-            <div className="city">Paris</div>
+            <div className="city">{weatherData.cityName}</div>
             <div className="core-data">
                 <img src={weatherIcon} alt="" width="200px" />
                 <div>
@@ -31,6 +32,7 @@ const Weather = ({ weatherData }) => {
             </div>
             <div>Vitesse du vent : {weatherData.wind10m} km/h</div>
             <div>Probabilité de pluie : {weatherData.probarain} %</div>
+            <CitySelector setInsee={setInsee} />
         </div>
     )
 }
