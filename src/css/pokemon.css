@@ -1,0 +1,13 @@
+.pokemon-body {
+    background-color: rgb(41, 41, 41);
+    width: fit-content;
+    min-width: 400px;
+    border-radius: 15px;
+    padding: 1.5em;
+    margin: .5em;
+}
+
+.name {
+    font-size: 2em;
+    font-weight: 100;
+}

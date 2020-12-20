@@ -1,0 +1,26 @@
+.weather-body {
+    background-color: rgb(41, 41, 41);
+    max-width: 500px;
+    border-radius: 15px;
+    padding: 1.5em;
+    flex-grow: 1;
+    margin: .5em;
+}
+
+.city {
+    text-align: left;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.core-data {
+    display: flex;
+    width: fit-content;
+    margin: auto;
+    align-items: center;
+}
+
+.temperature {
+    font-size: 2em;
+    font-weight: 100;
+}

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import WeatherMap from './utilities/WeatherMap'
-import weatherToType from './utilities/WeatherToType';
+import React, { useState, useEffect } from "react"
+import weatherToType from './utilities/WeatherToType'
 
-const PokemonGenerator = ({ types, weather }) => {
-    // const [type, setType] = useState("No type")
+import './css/pokemon.css'
+
+const Pokemon = ({ types, weather }) => {
     let type = "No type"
     const [pokemon, setPokemon] = useState({})
     const [pokemonFetched, setPokemonFetched] = useState(false)
@@ -35,14 +35,17 @@ const PokemonGenerator = ({ types, weather }) => {
             .then((data) => setPokemonSprite(data.sprites.other.dream_world.front_default))
     }
 
+    const capitalize = (s) => {
+        if (typeof s !== 'string') return ''
+        return s.charAt(0).toUpperCase() + s.slice(1)
+    }
+
     return (
-        <div>
-            Weather is : {WeatherMap.get(weather.weather)}<br />
-            The type will be {type.name}<br />
-            {pokemon.name}
-            <img src={pokemonSprite} alt="" />
+        <div className="pokemon-body">
+            <img src={pokemonSprite} alt="" height="200px" />
+            <div className="name">{capitalize(pokemon.name)}</div>
         </div>
     )
 }
 
-export default PokemonGenerator
+export default Pokemon

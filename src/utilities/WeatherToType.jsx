@@ -9,7 +9,7 @@ weatherToTypeMap.set('Averses', 'water')
 weatherToTypeMap.set('Neige', 'ice')
 weatherToTypeMap.set('Orages', 'electric')
 
-const getWeatherName = (weather) => {
+export const getWeatherName = (weather) => {
     const longWeather = weatherMap.get(weather.weather)
     const words = longWeather.split(' ')
     return words[0]
