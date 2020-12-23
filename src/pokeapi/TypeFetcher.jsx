@@ -11,7 +11,7 @@ const TypeFetcher = ({ setTypes }) => {
             .then((response) => response.json())
             .then((data) => {
                 if (fetched) {
-                    setTypes(data["results"])
+                    setTypes(data.results)
                 }
             })
         return () => {

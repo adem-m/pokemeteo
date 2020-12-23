@@ -33,12 +33,14 @@ const Pokemon = ({ types, weather }) => {
     }
 
     const getSprite = (url) => {
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-                localStorage.setItem("pokemonData", JSON.stringify(data))
-                setPokemonSprite(data.sprites.other.dream_world.front_default)
-            })
+        if (url) {
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem("pokemonData", JSON.stringify(data))
+                    setPokemonSprite(data.sprites?.other.dream_world.front_default)
+                })
+        }
     }
 
     return (
