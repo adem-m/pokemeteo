@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import cityMap from '../utilities/CityMap'
 
 const TOKENS = [
@@ -9,12 +9,21 @@ const TYPESURL = "https://api.meteo-concept.com/api/forecast/nextHours?token=" +
 
 
 const WeatherFetcher = ({ setWeatherData, insee }) => {
-
+    const [fetched, setFetched] = useState(false)
     useEffect(() => {
+        setFetched(true)
         fetch(TYPESURL + insee)
             .then((response) => response.json())
-            .then((data) => setWeatherData({...data.forecast[0], cityName: cityMap.get(insee)}))
-    }, [setWeatherData, insee])
+            .then((data) => {
+                if (fetched) {
+                    localStorage.setItem('weatherData', JSON.stringify(data))
+                    setWeatherData({ ...data.forecast[0], cityName: cityMap.get(insee) })
+                }
+            })
+        return () => {
+            setFetched(false);
+        }
+    }, [setWeatherData, insee, fetched])
 
     return (
         <></>

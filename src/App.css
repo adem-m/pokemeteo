@@ -12,5 +12,13 @@
   justify-content: space-evenly;
   display: flex;
   flex-wrap: wrap;
-  height: 80%;
+  height: 88%;
+  padding: 10px;
+}
+
+.pokemon-details-page {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-width: 70vw;
 }

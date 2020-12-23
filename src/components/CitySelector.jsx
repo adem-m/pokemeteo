@@ -1,8 +1,8 @@
 import React from "react"
-import cityMap from './utilities/CityMap'
+import cityMap from '../utilities/CityMap'
 import Button from '@material-ui/core/Button';
 
-import './css/city_selector.css'
+import '../css/city_selector.css'
 
 const CitySelector = ({ setInsee }) => {
     const cityArray = []

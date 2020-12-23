@@ -1,0 +1,56 @@
+.pokemon-sheet-title {
+    text-align: left;
+    font-weight: 100;
+    font-size: 1.5em;
+    margin-bottom: .5em;
+}
+
+.pokemon-details {
+    background-color: #2a2a2a;
+    height: fit-content;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.pokemon-name {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.pokemon-id {
+    font-style: italic;
+    font-weight: 100;
+}
+
+.pokemon-stats {
+    text-align: left;
+    margin: 1em 0;
+}
+
+.pokemon-sprite {
+    background-color: #454545;
+    border-radius: 5px;
+    width: fit-content;
+    margin: .5em;
+    padding: 0 5px;
+}
+
+.sprites {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pokemon-sprite-label {
+    font-weight: 100;
+    margin-top: .5em;
+}
+
+.pokemon-abilities-title {
+    font-size: 1.2em;
+    margin: 1em;
+}
+
+.ability {
+    text-align: left;
+    font-weight: 100;
+}

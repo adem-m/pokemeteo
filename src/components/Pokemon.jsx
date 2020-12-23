@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react"
-import weatherToType from './utilities/WeatherToType'
+import weatherToType from '../utilities/WeatherToType'
+import Button from '@material-ui/core/Button';
+import { capitalize } from '../utilities/functions'
 
-import './css/pokemon.css'
+import '../css/pokemon.css'
 
 const Pokemon = ({ types, weather }) => {
-    let type = "No type"
     const [pokemon, setPokemon] = useState({})
     const [pokemonFetched, setPokemonFetched] = useState(false)
     const [pokemonSprite, setPokemonSprite] = useState("")
 
-    type = weatherToType(weather, types)
+    let type = weatherToType(weather, types)
 
     useEffect(() => {
         if (!pokemonFetched) {
@@ -34,18 +35,19 @@ const Pokemon = ({ types, weather }) => {
     const getSprite = (url) => {
         fetch(url)
             .then((response) => response.json())
-            .then((data) => setPokemonSprite(data.sprites.other.dream_world.front_default))
-    }
-
-    const capitalize = (s) => {
-        if (typeof s !== 'string') return ''
-        return s.charAt(0).toUpperCase() + s.slice(1)
+            .then((data) => {
+                localStorage.setItem("pokemonData", JSON.stringify(data))
+                setPokemonSprite(data.sprites.other.dream_world.front_default)
+            })
     }
 
     return (
         <div className="pokemon-body">
             <img src={pokemonSprite} alt="" height="200px" />
             <div className="name">{capitalize(pokemon.name)}</div>
+            <div className="pokemon-details-button">
+                <Button onClick={() => window.location.href = "/pokemon-details"}>Plus</Button>
+            </div>
         </div>
     )
 }

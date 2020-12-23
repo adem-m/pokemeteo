@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import CitySelector from './CitySelector'
-import weatherMap from './utilities/WeatherMap'
-import { getWeatherName } from './utilities/WeatherToType'
-import weatherIconMap from './utilities/WeatherIconMap'
+import weatherMap from '../utilities/WeatherMap'
+import { getWeatherName } from '../utilities/WeatherToType'
+import weatherIconMap from '../utilities/WeatherIconMap'
 
-import './css/weather.css'
+import '../css/weather.css'
 
 const Weather = ({ weatherData, setInsee }) => {
     const [weatherIcon, setWeatherIcon] = useState("")
