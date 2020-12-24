@@ -2,7 +2,7 @@
     background-color: rgb(41, 41, 41);
     max-width: 500px;
     border-radius: 15px;
-    padding: 1.5em;
+    padding: 1.5em 1.5em .5em 1.5em;
     flex-grow: 1;
     margin: .5em;
 }

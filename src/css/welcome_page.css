@@ -1,0 +1,28 @@
+.welcome-page {
+    max-width: 600px;
+}
+
+.welcome-title {
+    font-weight: 100;
+    font-size: 2em;
+    padding: 1em;
+}
+
+.description {
+    text-align: left;
+}
+
+.api-name {
+    font-weight: 100;
+    margin: 1.3em 0 .2em 0;
+    font-size: 1.2em;
+}
+
+.api-link {
+    text-align: center;
+    padding-top: .8em;
+}
+
+.go-button {
+    padding: 2em;
+}

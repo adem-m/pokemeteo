@@ -14,6 +14,7 @@
 
 .pokemon-details-button {
     text-align: end;
+    padding-top: 5px;
 }
 
 .pokemon-details-button button {

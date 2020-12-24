@@ -3,6 +3,7 @@ import CitySelector from './CitySelector'
 import weatherMap from '../utilities/WeatherMap'
 import { getWeatherName } from '../utilities/WeatherToType'
 import weatherIconMap from '../utilities/WeatherIconMap'
+import Button from '@material-ui/core/Button';
 
 import '../css/weather.css'
 
@@ -15,7 +16,11 @@ const Weather = ({ weatherData, setInsee }) => {
 
     useEffect(() => {
         if (Object.keys(weatherData).length > 0)
-            setWeatherIcon(getWeatherUrl(weatherIconMap.get(getWeatherName(weatherData))))
+            {
+                const icon = getWeatherUrl(weatherIconMap.get(getWeatherName(weatherData)))
+                localStorage.setItem('weatherIcon', icon)
+                setWeatherIcon(icon)
+            }
     }, [weatherData])
 
     return (
@@ -31,6 +36,9 @@ const Weather = ({ weatherData, setInsee }) => {
             <div>Vitesse du vent : {weatherData.wind10m} km/h</div>
             <div>Probabilité de pluie : {weatherData.probarain} %</div>
             <CitySelector setInsee={setInsee} />
+            <div className="pokemon-details-button">
+                <Button onClick={() => window.location.href = "/weather-details"}>Plus</Button>
+            </div>
         </div>
     )
 }

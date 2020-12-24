@@ -9,14 +9,25 @@ import Pokemon from './components/Pokemon'
 import Weather from './components/Weather'
 import WeatherTable from './components/WeatherTable'
 import PokemonDetails from './components/PokemonDetails'
+import WeatherDetails from './components/WeatherDetails'
+import WelcomePage from "./components/WelcomePage";
 
 function App() {
     const [types, setTypes] = useState([])
     const [weather, setWeather] = useState({})
     const [insee, setInsee] = useState("75101")
 
-    const showMain = () => {
+    const showWelcome = () => {
         if (window.location.pathname === '/')
+        return (
+            <div>
+                <WelcomePage />
+            </div>
+        )
+    }
+
+    const showMain = () => {
+        if (window.location.pathname === '/home')
             return (
                 <>
                     <TypeFetcher setTypes={setTypes} />
@@ -39,14 +50,25 @@ function App() {
             )
     }
 
+    const showWeatherDetails = () => {
+        if (window.location.pathname === '/weather-details')
+            return (
+                <div className="weather-details-page">
+                    <WeatherDetails />
+                </div>
+            )
+    }
+
     return (
         <div className="App">
             <div className="app-header">
                 <Header />
             </div>
             <div className="app-body">
+                {showWelcome()}
                 {showMain()}
                 {showPokemonDetails()}
+                {showWeatherDetails()}
             </div>
         </div>
     );
